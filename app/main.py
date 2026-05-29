@@ -89,4 +89,31 @@ def cancel_appointment(appointment_id: int):
         "message": "Appointment cancelled successfully",
         "appointment": appointments[appointment_id]
     }
+
+@app.get("/health")
+def health_check():
+    return {"status": "API is running"}
+
+@app.get("/appointments/status/{status}")
+def get_appointments_by_status(status: str):
+    filtered = [
+        appointment for appointment in appointments.values()
+        if appointment["status"].lower() == status.lower()
+    ]
+    return {
+        "count": len(filtered),
+        "appointments": filtered
+    }
+
+@app.get("/appointments/doctor/{doctor_name}")
+def get_appointments_by_doctor(doctor_name: str):
+    filtered = [
+        appointment for appointment in appointments.values()
+        if appointment["doctor_name"].lower() == doctor_name.lower()
+    ]
+    return {
+        "count": len(filtered),
+        "appointments": filtered
+    }
+
     
