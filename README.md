@@ -6,7 +6,7 @@ This project is a simple Clinic Appointment API built using FastAPI and Docker.
 
 This project was developed in an offline Windows 11 laboratory environment.
 
-Python was not installed directly on the computer. The application was executed using Docker and a prebuild Docker image named clinic-fastapi-base:1.0.
+Python was not installed directly on the computer. The application was executed using Docker and a prebuilt Docker image named clinic-fastapi-base:1.0.
 
 ## Features
 
