@@ -28,3 +28,15 @@ Python was not installed directly on the computer. The application was executed 
 docker compose up --build
 
 Open http://localhost:8000/docs.
+
+## Logout behavior
+
+This project uses basic, static bearer tokens for instructional purposes, so there is no formal "logout" endpoint on the server side. To logout, the client application just needs to delete the token from its own side. If the client forgets the token, they are effectively logged out.
+
+In a production-ready application (using JWTs or opaque tokens), logging out is typically handled in one of three ways:
+
+- Client-Side Deletion: The frontend application deletes the token from its storage (localStorage, cookies, or app state).
+
+- Token Expiration & Refresh Tokens: Access tokens are given a very short lifespan (e.g., 15 minutes). 
+
+- Token Blacklisting: The server maintains a list of revoked token IDs (a blacklist) and checks it during incoming API requests to block access.
